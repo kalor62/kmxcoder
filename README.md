@@ -6,6 +6,8 @@ KMX Coder is a VSCode extension that helps you optimize and analyze your code wi
 
 KMX Coder offers features powered by ChatGPT:
 
+( Ctrl + Shift + P) Commands
+
 1. `KMX Coder Optimize Selected` : Refactors your selected code using ChatGPT and provides a diff view to show the changes.
 2. `KMX Coder Analyze Selected` : Leverages ChatGPT to offer code review and suggestions, presenting the results in a new untitled editor.
 
