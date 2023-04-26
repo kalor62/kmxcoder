@@ -53,6 +53,10 @@
       {
         "command": "kmxcoder.optimize",
         "title": "KMX Coder Optimize Selected"
+      },
+      {
+        "command": "kmxcoder.custom",
+        "title": "KMX Coder Custom Command on Selected"
       }
     ]
   },

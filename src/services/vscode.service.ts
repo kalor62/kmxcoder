@@ -20,7 +20,7 @@ export default class VscodeService {
       vscode.window.showTextDocument(document);
    }
 
-   async registerCommand(commandName: 'analyze' | 'optimize') {
+   async registerCommand(commandName: 'analyze' | 'optimize' | 'custom', beforeCode?: string, afterCode?: string) {
       vscode.window.showInformationMessage('Running KMX Coder Command...');
 
       const editor = vscode.window.activeTextEditor;
@@ -34,16 +34,17 @@ export default class VscodeService {
       const code = document.getText(editor.selection);
       const analyze = `Analyze the following code and provide suggestions and code review, suggestions should be comments over the line of code that it applies to:\n\n${code} `;
       const optimize = `Optimize the following code:\n\n${code}\n\n`;
+      const custom = `${beforeCode}\n\n${code}\n\n${afterCode}`;
 
-      const text = commandName === 'analyze' ? analyze : commandName === 'optimize' ? optimize : '';
+      const text = commandName === 'analyze' ? analyze : commandName === 'optimize' ? optimize : commandName === 'custom' ? custom : '';
 
       const suggestions = await this.openaiService.createChatCompletion(text);
 
       if (typeof (suggestions) === 'string') {
-         if (commandName === 'analyze') {
-            this.openInUntitled(suggestions, editor.document.languageId);
-         } else {
+         if (commandName === 'optimize') {
             this.openDiffBetweenStrings(code, suggestions, 'Your Code', 'Optimized Code');
+         } else {
+            this.openInUntitled(suggestions, editor.document.languageId);
          }
       }
    }

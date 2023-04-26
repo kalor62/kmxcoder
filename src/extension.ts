@@ -18,6 +18,14 @@ export function activate(context: vscode.ExtensionContext) {
       vscodeService.registerCommand('optimize');
    });
 
+   // Custom Command - Writing Code, Optimizing, Analysing, Anything...
+   disposable = vscode.commands.registerCommand('kmxcoder.custom', async () => {
+      const beforeCode = await vscode.window.showInputBox({ title: 'Prompt before code' });
+      const afterCode = await vscode.window.showInputBox({ title: 'Prompt after code' });
+
+      vscodeService.registerCommand('custom', beforeCode, afterCode);
+   });
+
    context.subscriptions.push(disposable);
 }
 
