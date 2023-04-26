@@ -31,7 +31,7 @@ None
 
 Extension Release Notes
 
-## Contributiong
+## Contribution
 
 We welcome contributions. If you're interested in improving KMX Coder, please submit a pull request or open an issue on our GitHub Repository.
 
