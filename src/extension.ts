@@ -23,7 +23,14 @@ export function activate(context: vscode.ExtensionContext) {
       const beforeCode = await vscode.window.showInputBox({ title: 'Prompt before code' });
       const afterCode = await vscode.window.showInputBox({ title: 'Prompt after code' });
 
-      vscodeService.registerCommand('custom', beforeCode, afterCode);
+      const options: vscode.QuickPickItem[] = [
+         { label: 'Display in New Editor' },
+         { label: 'Display as Diff' }
+      ];
+
+      const displayType = await vscode.window.showQuickPick(options, { placeHolder: 'Select how to display the results' });
+
+      vscodeService.registerCommand('custom', beforeCode, afterCode, displayType?.label);
    });
 
    context.subscriptions.push(disposable);

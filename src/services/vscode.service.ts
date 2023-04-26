@@ -20,7 +20,7 @@ export default class VscodeService {
       vscode.window.showTextDocument(document);
    }
 
-   async registerCommand(commandName: 'analyze' | 'optimize' | 'custom', beforeCode?: string, afterCode?: string) {
+   async registerCommand(commandName: 'analyze' | 'optimize' | 'custom', beforeCode?: string, afterCode?: string, displayType?: string) {
       vscode.window.showInformationMessage('Running KMX Coder Command...');
 
       const editor = vscode.window.activeTextEditor;
@@ -41,7 +41,7 @@ export default class VscodeService {
       const suggestions = await this.openaiService.createChatCompletion(text);
 
       if (typeof (suggestions) === 'string') {
-         if (commandName === 'optimize') {
+         if (commandName === 'optimize' || displayType === 'Display as Diff') {
             this.openDiffBetweenStrings(code, suggestions, 'Your Code', 'Optimized Code');
          } else {
             this.openInUntitled(suggestions, editor.document.languageId);
