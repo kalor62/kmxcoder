@@ -1,10 +1,12 @@
 import * as vscode from 'vscode';
 import VscodeService from './services/vscode.service';
+import OpenaiService from './services/openai.service';
 
 export function activate(context: vscode.ExtensionContext) {
    console.log('Congratulations, your extension "kmxcoder" is now active!');
 
-   const vscodeService = new VscodeService;
+   const openaiService = new OpenaiService;
+   const vscodeService = new VscodeService(openaiService);
 
    // Code Analysis - Review
    let disposable = vscode.commands.registerCommand('kmxcoder.analyze', async () => {

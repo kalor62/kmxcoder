@@ -7,8 +7,8 @@ import * as path from 'path';
 export default class VscodeService {
    openaiService: OpenaiService;
 
-   constructor() {
-      this.openaiService = new OpenaiService;
+   constructor(openaiService: OpenaiService) {
+      this.openaiService = openaiService;
    }
 
    async openInUntitled(content: string, language?: string) {
