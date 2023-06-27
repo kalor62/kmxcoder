@@ -11,6 +11,8 @@ KMX Coder offers features powered by ChatGPT:
 1. `KMX Coder Optimize Selected` : Refactors your selected code using ChatGPT and provides a diff view to show the changes.
 2. `KMX Coder Analyze Selected` : Leverages ChatGPT to offer code review and suggestions, presenting the results in a new untitled editor.
 3. `KMX Coder Custom Command on Selected` : Query ChatGPT with anything you want, option to add beforeCode and afterCode prompt and select output format ( new untitled document of diff window ).
+4. `KMX Coder Optimize File` : Similar to the 'Optimize' command but operates on an entire file. The optimized code is displayed as a diff against the original file
+5. `KMX Coder Update Tests` : Updates unit tests based on changes in the service class. The updated tests are displayed as a diff against the original tests
 
 ## Requirements
 
@@ -29,7 +31,11 @@ None
 
 ## Release Notes
 
-Extension Release Notes
+1.0.0
+Initial release of KMX Coder.
+
+1.1.0
+Added `KMX Coder: Optimize File` and `KMX Coder: Update Tests` commands
 
 ## Contribution
 

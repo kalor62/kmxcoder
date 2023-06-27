@@ -2,7 +2,7 @@
   "name": "kmxcoder",
   "displayName": "kmxcoder",
   "description": "KMX Coder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "kmxsoftware",
   "engines": {
     "vscode": "^1.77.0"
@@ -56,8 +56,16 @@
         "title": "KMX Coder Optimize Selected"
       },
       {
+        "command": "kmxcoder.optimize-file",
+        "title": "KMX Coder Optimize File"
+      },
+      {
         "command": "kmxcoder.custom",
         "title": "KMX Coder Custom Command on Selected"
+      },
+      {
+        "command": "kmxcoder.update-tests",
+        "title": "KMX Coder Update Tests"
       }
     ]
   },
