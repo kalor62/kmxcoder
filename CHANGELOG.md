@@ -19,3 +19,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Fixed
 
 Fixed issue where the command message disappeared prematurely. The new loading indicator will stay until the command execution is completed.
+
+## [1.1.1]
+### Fixed
+- fixed diff on update-tests command
