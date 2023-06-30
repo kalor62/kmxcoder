@@ -23,3 +23,8 @@ Fixed issue where the command message disappeared prematurely. The new loading i
 ## [1.1.1]
 ### Fixed
 - fixed diff on update-tests command
+
+## [1.1.2]
+
+### Fixed
+- fixed diff between files to have original on the left and changed on the right, currently there is no way to have the vscode arrows poiting to the left to move new code into the original file, but having reversed order makes it even more confusing

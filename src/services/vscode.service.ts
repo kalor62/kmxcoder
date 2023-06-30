@@ -76,12 +76,12 @@ export default class VscodeService {
                const originalUri = vscode.Uri.file(testFilePath);
                const modifiedUri = await this.writeStringToTempFile(suggestions, 'modified-tests.ts');
 
-               await vscode.commands.executeCommand('vscode.diff', modifiedUri, originalUri, 'Modified Tests vs Your Original File');
+               await vscode.commands.executeCommand('vscode.diff', originalUri, modifiedUri, 'Your Original File vs Modified Tests');
             } else if (commandName === 'optimize-file') {
                const originalUri = vscode.Uri.file(serviceFilePath ? serviceFilePath : '');
                const modifiedUri = await this.writeStringToTempFile(suggestions, 'optimized-file.ts');
 
-               await vscode.commands.executeCommand('vscode.diff', modifiedUri, originalUri, 'Optimized File vs Your Original File');
+               await vscode.commands.executeCommand('vscode.diff', originalUri, modifiedUri, 'Your Original File vs Optimized File');
             } else {
                if (commandName === 'optimize' || displayType === 'Display as Diff') {
                   this.openDiffBetweenStrings(code, suggestions, 'Your Code', 'Optimized Code');
